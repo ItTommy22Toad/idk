@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheOnlyOneBlock | Minecraft Server</title>
+    <!-- Favicon link -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        :root {
+            --dark-red: #8B0000;
+            --scarlet: #FF2400;
+            --red: #FF0000;
+            --bg-dark: #120000;
+            --text-light: #F5F5F5;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--scarlet) 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .ip-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .ip-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--scarlet);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-btn {
+            background-color: var(--scarlet);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--red);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Language Toggle */
+        .lang-toggle-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .lang-btn {
+            background-color: var(--dark-red);
+            color: white;
+            border: 2px solid var(--scarlet);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--scarlet);
+        }
+
+        /* Alternating Feature Sections */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 36, 0, 0.3);
+            border: 3px solid var(--dark-red);
+        }
+
+        .feature-text {
+            flex: 1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            background: rgba(139, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--scarlet);
+        }
+
+        .feature-row:nth-child(even) .feature-text {
+            border-left: none;
+            border-right: 5px solid var(--scarlet);
+        }
+
+        h2 {
+            color: var(--scarlet);
+            margin-top: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .feature-row, .feature-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature-image {
+                max-width: 100%;
+            }
+            .feature-text {
+                border: none !important;
+                border-top: 5px solid var(--scarlet) !important;
+            }
+            .lang-toggle-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TheOnlyOneBlock</h1>
+        <div class="ip-container">
+            <div class="ip-box">
+                <span id="full-ip">TheOnlyOneBlock.aternos.me:59078</span>
+                <button class="copy-btn" onclick="copyText('full-ip')">Copy IP:Port</button>
+            </div>
+            <div class="ip-box">
+                <span>Port: </span><span id="port-only">59078</span>
+                <button class="copy-btn" onclick="copyText('port-only')">Copy Port</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="lang-toggle-container">
+            <button class="lang-btn" onclick="toggleLanguage()">🌐 Switch to Español</button>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image1.png" alt="Server Resources">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Efficiency & Free Resources" data-es="Eficiencia y Recursos Gratuitos">Efficiency & Free Resources</h2>
+                <p class="translatable" 
+                   data-en="Unlike massive networks like Hypixel that rely on multiple servers and complex proxies, TheOnlyOneBlock operates brilliantly on a single server using entirely free resources. We prove that a great Minecraft experience doesn't require a massive budget!" 
+                   data-es="A diferencia de las redes masivas como Hypixel que dependen de múltiples servidores y proxies complejos, TheOnlyOneBlock funciona de manera brillante en un solo servidor utilizando recursos completamente gratuitos. ¡Demostramos que una gran experiencia en Minecraft no requiere un presupuesto masivo!">
+                   Unlike massive networks like Hypixel that rely on multiple servers and complex proxies, TheOnlyOneBlock operates brilliantly on a single server using entirely free resources. We prove that a great Minecraft experience doesn't require a massive budget!
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image2.png" alt="Bilingual Support">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Bilingual Support Team" data-es="Equipo de Soporte Bilingüe">Bilingual Support Team</h2>
+                <p class="translatable" 
+                   data-en="Our dedicated support team speaks both English and Spanish! We are always ready to help you recover a lost account, transfer your hard-earned stats to a new account, or assist with anything else you might need." 
+                   data-es="¡Nuestro dedicado equipo de soporte habla inglés y español! Siempre estamos listos para ayudarte a recuperar una cuenta perdida, transferir tus estadísticas ganadas con esfuerzo a una nueva cuenta o asistirte con cualquier otra cosa que puedas necesitar.">
+                   Our dedicated support team speaks both English and Spanish! We are always ready to help you recover a lost account, transfer your hard-earned stats to a new account, or assist with anything else you might need.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image3.png" alt="Friendly Community">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="A Welcoming Community" data-es="Una Comunidad Acogedora">A Welcoming Community</h2>
+                <p class="translatable" 
+                   data-en="Join a server filled with kind and helpful players. It's the perfect place to make new friends! Plus, because we support Bedrock Edition and older versions of Minecraft Java, you can invite all your friends to play, regardless of what device they use." 
+                   data-es="Únete a un servidor lleno de jugadores amables y serviciales. ¡Es el lugar perfecto para hacer nuevos amigos! Además, debido a que admitimos Bedrock Edition y versiones antiguas de Minecraft Java, puedes invitar a todos tus amigos a jugar, independientemente del dispositivo que usen.">
+                   Join a server filled with kind and helpful players. It's the perfect place to make new friends! Plus, because we support Bedrock Edition and older versions of Minecraft Java, you can invite all your friends to play, regardless of what device they use.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image4.png" alt="Minigames">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Awesome Minigames" data-es="Increíbles Minijuegos">Awesome Minigames</h2>
+                <p class="translatable" 
+                   data-en="While OneBlock is our main attraction, the fun doesn't stop there! Take a break and dive into exciting minigames like TNT Run, Skywars, or let your imagination run wild in our Creative Mode." 
+                   data-es="Aunque OneBlock es nuestra atracción principal, ¡la diversión no termina ahí! Tómate un descanso y sumérgete en emocionantes minijuegos como TNT Run, Skywars, o deja volar tu imaginación en nuestro Modo Creativo.">
+                   While OneBlock is our main attraction, the fun doesn't stop there! Take a break and dive into exciting minigames like TNT Run, Skywars, or let your imagination run wild in our Creative Mode.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image5.png" alt="Custom Skins">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Custom Skins For Everyone" data-es="Skins Personalizados Para Todos">Custom Skins For Everyone</h2>
+                <p class="translatable" 
+                   data-en="Express yourself! On our server, you can customize your look to be anything you want. Simply type the command '/skin set <username/url>' in-game, and instantly change into your favorite skin." 
+                   data-es="¡Exprésate! En nuestro servidor, puedes personalizar tu apariencia para ser lo que quieras. Simplemente escribe el comando '/skin set <username/url>' en el juego y cambia instantáneamente a tu skin favorito.">
+                   Express yourself! On our server, you can customize your look to be anything you want. Simply type the command '/skin set <username/url>' in-game, and instantly change into your favorite skin.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image6.png" alt="Balanced Economy">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Perfectly Balanced Economy" data-es="Economía Perfectamente Equilibrada">Perfectly Balanced Economy</h2>
+                <p class="translatable" 
+                   data-en="We take pride in our well-balanced economy. Every item is fairly priced for both buying and selling. Our comprehensive shop provides absolutely everything you need to expand and upgrade your OneBlock island!" 
+                   data-es="Nos enorgullecemos de nuestra economía bien equilibrada. Cada artículo tiene un precio justo tanto para la compra como para la venta. ¡Nuestra tienda integral ofrece absolutamente todo lo que necesitas para expandir y mejorar tu isla OneBlock!">
+                   We take pride in our well-balanced economy. Every item is fairly priced for both buying and selling. Our comprehensive shop provides absolutely everything you need to expand and upgrade your OneBlock island!
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="feature-row">
+            <div class="feature-image">
+                <img src="/image7.png" alt="Join Today">
+            </div>
+            <div class="feature-text">
+                <h2 class="translatable" data-en="Why Join TheOnlyOneBlock?" data-es="¿Por qué unirse a TheOnlyOneBlock?">Why Join TheOnlyOneBlock?</h2>
+                <p class="translatable" 
+                   data-en="Experience a lag-free, community-driven server packed with features, minigames, cross-play support, and a perfect economy. Join today using IP: TheOnlyOneBlock.aternos.me (Bedrock Port: 59078) and start your adventure!" 
+                   data-es="Experimenta un servidor sin lag, impulsado por la comunidad y repleto de funciones, minijuegos, soporte de juego cruzado y una economía perfecta. ¡Únete hoy usando la IP: TheOnlyOneBlock.aternos.me (Puerto Bedrock: 59078) y comienza tu aventura!">
+                   Experience a lag-free, community-driven server packed with features, minigames, cross-play support, and a perfect economy. Join today using IP: TheOnlyOneBlock.aternos.me (Bedrock Port: 59078) and start your adventure!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(elementId) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Copied to clipboard: " + textToCopy);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            const elements = document.querySelectorAll('.translatable');
+            const toggleBtn = document.querySelector('.lang-btn');
+            
+            if (currentLang === 'en') {
+                elements.forEach(el => {
+                    el.innerText = el.getAttribute('data-es');
+                });
+                toggleBtn.innerText = '🌐 Switch to English';
+                currentLang = 'es';
+            } else {
+                elements.forEach(el => {
+                    el.innerText = el.getAttribute('data-en');
+                });
+                toggleBtn.innerText = '🌐 Switch to Español';
+                currentLang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>
